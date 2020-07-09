@@ -1,0 +1,25 @@
+
+
+<% if @error %>
+    <% @error.each do |e| %>
+        <%= e %>
+    <%end%>
+<%end%>
+<br>
+<h1>Make a new Pizza! </h1>
+<br>
+<%= form_for @pizza do |f| %>
+    <h3>Restaurant: </h3> 
+    <%=f.collection_select :restaurant_ids, @restaurants, :id , :name %>
+    <br>
+    <br>
+    <br>
+    <h3> Name </h3> 
+    <%= f.label :name%>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :ingredients%>
+    <%= f.text_area :ingredients %>
+    <%= f.submit %>
+<% end %>
